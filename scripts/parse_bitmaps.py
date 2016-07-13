@@ -4,6 +4,7 @@ from __future__ import print_function, division
 import sys
 import struct
 import argparse
+import io
 from PIL import Image, ImageChops, ImageStat
 
 """Parses bitmap grids from a datasheet image, and converts them to a
@@ -33,14 +34,13 @@ def main():
     args = parser.parse_args()
 
     if args.out:
-        out = open(args.out, 'w')
+        out = io.open(args.out, 'wb')
     else:
-        out = sys.stdout
+        out = io.open(sys.stdout.fileno(), 'wb', closefd=False)
     for imgfile in args.imgfile:
         out.write(parse_image(imgfile, args.width, args.height,
                               args.thresh, args.invert))
-    if args.out:
-        out.close()
+    out.close()
 
 def parse_image(imgfile, cwidth, cheight, thresh, invert):
     """Reads the image from the specified image file, parses the character
@@ -70,7 +70,7 @@ def parse_image(imgfile, cwidth, cheight, thresh, invert):
             charbit = im.crop((xstart, ystart, xend+1, yend+1))
             for val in parse_char(charbit, cwidth, cheight, thresh):
                 parts.append(struct.pack('>H', val))
-    return ''.join(parts)
+    return b''.join(parts)
 
 
 def get_bounds(im, dim, thresh=32):

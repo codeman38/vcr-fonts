@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 import binascii
 import sys
@@ -41,7 +43,7 @@ def main():
     char_height = args.height
     char_length = char_byte_width * char_height
     char_descent = args.descent
-    num_chars = len(data) / char_length
+    num_chars = len(data) // char_length
 
     font = Font(fontname, char_height, 72, 72)
     for glyph_num in range(num_chars):
