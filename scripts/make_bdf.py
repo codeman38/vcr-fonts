@@ -52,8 +52,10 @@ def main():
 
     font = Font(fontname, char_height, 72, 72)
     for glyph_num in range(num_chars):
-        glyph_start = glyph_num*char_length
+        if glyph_num >= len(mapping): break
         glyph_cp = mapping[glyph_num]
+        if glyph_cp == 0: continue
+        glyph_start = glyph_num*char_length
         rows = []
         for row in range(char_height):
             row_start = glyph_start + char_byte_width * row
