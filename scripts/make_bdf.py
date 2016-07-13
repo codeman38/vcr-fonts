@@ -21,6 +21,10 @@ def main():
                         help='character descent (default: %(default)d)')
     parser.add_argument('-o', '--output',
                         help='output file (default: stdout)')
+    parser.add_argument('-n', '--name',
+                        help='font name to use for generated font. '
+                             'By default, auto-derived from the name '
+                             'of binfile.')
     parser.add_argument('binfile',
                         help='file containing binary font data')
     parser.add_argument('mapfile',
@@ -36,7 +40,8 @@ def main():
         mapping = [int(line.strip().split()[0], 16)
                    for line in fp]
 
-    fontname = os.path.splitext(os.path.basename(args.binfile))[0]
+    fontname = os.path.splitext(os.path.basename(args.binfile))[0] \
+               if args.name is None else args.name
 
     char_width = args.width
     char_byte_width = (char_width+7)//8
