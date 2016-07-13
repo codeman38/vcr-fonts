@@ -1,0 +1,240 @@
+e000	...
+e001	|..
+e002	||.
+e003	|||
+e004	.||
+e005	..|
+e006	.|.
+23e9	⏩
+23ea	⏪
+e007	[Slow Motion]
+23f9	⏹
+23f8	⏸
+23f5	⏵
+23fa	⏺
+261e	☞
+261c	☜
+30	0
+31	1
+32	2
+33	3
+34	4
+35	5
+36	6
+37	7
+38	8
+39	9
+3a	:
+3b	;
+b7	·
+3d	=
+26	&
+3f	?
+21	!
+41	A
+42	B
+43	C
+44	D
+45	E
+46	F
+47	G
+48	H
+49	I
+4a	J
+4b	K
+4c	L
+4d	M
+4e	N
+4f	O
+50	P
+51	Q
+52	R
+53	S
+54	T
+55	U
+56	V
+57	W
+58	X
+59	Y
+5a	Z
+25	%
+e008	[Degauss]
+201d	”
+2019	’
+5e	^
+5f	_
+2a	*
+2b	+
+2c	,
+2d	-
+2e	.
+2f	/
+b1	±
+e009	[Ch]
+26a1	⚡
+33c2	㏂
+33d8	㏘
+23f0	⏰
+e00a	[10]
+e00b	[11]
+e00c	[12]
+7e	~
+61	a
+62	b
+63	c
+64	d
+65	e
+66	f
+67	g
+68	h
+69	i
+6a	j
+6b	k
+6c	l
+6d	m
+6e	n
+6f	o
+70	p
+71	q
+72	r
+73	s
+74	t
+75	u
+76	v
+77	w
+78	x
+79	y
+7a	z
+25c0	◀
+25b6	▶
+25b2	▲
+25bc	▼
+2502	│
+28	(
+23ce	⏎
+29	)
+2192	→
+2190	←
+2191	↑
+2193	↓
+e00d	[lower left]
+e00e	[lower right]
+e00f	[upper left]
+e010	[upper right]
+2577	▁
+2594	▔
+258f	▏
+2595	▕
+20	 
+c4	Ä
+cf	Ï
+dc	Ü
+cb	Ë
+d6	Ö
+c0	À
+cc	Ì
+d9	Ù
+c8	È
+d2	Ò
+c1	Á
+cd	Í
+da	Ú
+c9	É
+d3	Ó
+c3	Ã
+128	Ĩ
+168	Ũ
+1ebc	Ẽ
+d5	Õ
+c2	Â
+ce	Î
+db	Û
+ca	Ê
+d4	Ô
+c5	Å
+d1	Ñ
+178	Ÿ
+c6	Æ
+c7	Ç
+104	Ą
+118	Ę
+df	ß
+d8	Ø
+a5	¥
+24	$
+a3	£
+23	#
+e016	[START left]
+e017	[START right]
+e018	[STOP left]
+e019	[STOP right]
+e01a	[END left]
+e01b	[END right]
+2592	▒
+e01c	[vertical shade]
+e01d	[horizontal shade]
+23f2	⏲
+25cb	○
+25c9	◉
+e013	[MENU left]
+e01f	[MENU right]
+e020	[ZOOM left]
+e021	[ZOOM right]
+e022	[WIDE left]
+e023	[WIDE right]
+e024	[Rotate left]
+e025	[Rotate right]
+e026	[VScale left]
+e027	[VScale right]
+e028	[HScale left]
+e029	[HScale right]
+e02a	[Pinch left]
+e02b	[Pinch right]
+e02c	[MODE left]
+e02d	[MODE right]
+e02e	[WHITE left]
+e02f	[WHITE right]
+e030	[AUTO left]
+e031	[AUTO right]
+e032	[MANUAL left]
+e033	[MANUAL mid]
+e034	[MANUAL right]
+e035	[Left border except top]
+e036	[Top left border]
+e037	[Bottom dotted]
+e038	[R]
+e039	[L]
+e03a	[B]
+e03b	[G]
+e03c	[Musical notes]
+e03d	[Mouse pointer]
+e03e	[BS]
+e03f	[SP]
+e040	[LP]
+e041	[EP]
+33c8	㏈
+e042	[alert left]
+e043	[alert right]
+1f511	🔑
+e044	[Left dotted]
+e045	[Crosshair]
+e046	[Right dotted]
+e047	[M]
+3390	㎐
+e048	[k]
+3c	<
+3e	>
+e049	[question left]
+e04a	[question right]
+1f50a	🔊
+1f509	🔉
+e04b	[sparkles]
+e04c	[vertical bar odd]
+e04d	[vertical bar even]
+e04e	[sun left]
+e04f	[sun right]
+e050	[Top dotted]
+2666	♦
+2660	♠
+2665	♥
+2663	♣
