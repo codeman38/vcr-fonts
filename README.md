@@ -11,3 +11,6 @@ Directory structure is as follows:
 
 * `raw` - Raw 1BPP binary data parsed from the datasheet images using
   `scripts/parse_bitmaps.py` with the default parameters.
+
+* `map` - Character mappings corresponding to the character data in `raw`,
+  with one Unicode ID (and optional comment) per line.
