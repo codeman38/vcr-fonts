@@ -99,17 +99,17 @@ f1	ñ
 23ea	⏪
 23f9	⏹
 2500	─
-e000	[left knob]
-e001	[left mid knob]
-e002	[right mid knob]
-e003	[right knob]
+f000	[left slider]
+f001	[left mid slider]
+f002	[right mid slider]
+f003	[right slider]
 c5	Å
 e5	å
 c9	É
 2386	⎆
 d1	Ñ
-e004	[satellite]
-e005	[T-shaped icon]
+1f4e1	📡
+f004	[T-shaped icon]
 3f	?
 2661	♡
 2581	▁
@@ -124,5 +124,5 @@ e005	[T-shaped icon]
 2190	←
 2191	↑
 2193	↓
-26bf	⚿
+1f511	🔑
 1f558	🕘

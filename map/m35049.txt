@@ -1,13 +1,13 @@
-e000	...
-e001	|..
-e002	||.
-e003	|||
-e004	.||
-e005	..|
-e006	.|.
+f000	...
+f001	|..
+f002	||.
+f003	|||
+f004	.||
+f005	..|
+f006	.|.
 23e9	⏩
 23ea	⏪
-e007	[Slow Motion]
+f007	[Slow Motion]
 23f9	⏹
 23f8	⏸
 23f5	⏵
@@ -58,7 +58,7 @@ b7	·
 59	Y
 5a	Z
 25	%
-e008	[Degauss]
+f008	[Degauss]
 201d	”
 2019	’
 5e	^
@@ -70,14 +70,14 @@ e008	[Degauss]
 2e	.
 2f	/
 b1	±
-e009	[Ch]
+f009	[Ch]
 26a1	⚡
 33c2	㏂
 33d8	㏘
 23f0	⏰
-e00a	[10]
-e00b	[11]
-e00c	[12]
+f00a	[10]
+f00b	[11]
+f00c	[12]
 7e	~
 61	a
 62	b
@@ -117,10 +117,10 @@ e00c	[12]
 2190	←
 2191	↑
 2193	↓
-e00d	[lower left]
-e00e	[lower right]
-e00f	[upper left]
-e010	[upper right]
+f00d	[lower left]
+f00e	[lower right]
+f00f	[upper left]
+f010	[upper right]
 2577	▁
 2594	▔
 258f	▏
@@ -164,76 +164,76 @@ a5	¥
 24	$
 a3	£
 23	#
-e016	[START left]
-e017	[START right]
-e018	[STOP left]
-e019	[STOP right]
-e01a	[END left]
-e01b	[END right]
+f016	[START left]
+f017	[START right]
+f018	[STOP left]
+f019	[STOP right]
+f01a	[END left]
+f01b	[END right]
 2592	▒
-e01c	[vertical shade]
-e01d	[horizontal shade]
+f01c	[vertical shade]
+f01d	[horizontal shade]
 23f2	⏲
 25cb	○
 25c9	◉
-e013	[MENU left]
-e01f	[MENU right]
-e020	[ZOOM left]
-e021	[ZOOM right]
-e022	[WIDE left]
-e023	[WIDE right]
-e024	[Rotate left]
-e025	[Rotate right]
-e026	[VScale left]
-e027	[VScale right]
-e028	[HScale left]
-e029	[HScale right]
-e02a	[Pinch left]
-e02b	[Pinch right]
-e02c	[MODE left]
-e02d	[MODE right]
-e02e	[WHITE left]
-e02f	[WHITE right]
-e030	[AUTO left]
-e031	[AUTO right]
-e032	[MANUAL left]
-e033	[MANUAL mid]
-e034	[MANUAL right]
-e035	[Left border except top]
-e036	[Top left border]
-e037	[Bottom dotted]
-e038	[R]
-e039	[L]
-e03a	[B]
-e03b	[G]
-e03c	[Musical notes]
-e03d	[Mouse pointer]
-e03e	[BS]
-e03f	[SP]
-e040	[LP]
-e041	[EP]
+f013	[MENU left]
+f01f	[MENU right]
+f020	[ZOOM left]
+f021	[ZOOM right]
+f022	[WIDE left]
+f023	[WIDE right]
+f024	[Rotate left]
+f025	[Rotate right]
+f026	[VScale left]
+f027	[VScale right]
+f028	[HScale left]
+f029	[HScale right]
+f02a	[Pinch left]
+f02b	[Pinch right]
+f02c	[MODE left]
+f02d	[MODE right]
+f02e	[WHITE left]
+f02f	[WHITE right]
+f030	[AUTO left]
+f031	[AUTO right]
+f032	[MANUAL left]
+f033	[MANUAL mid]
+f034	[MANUAL right]
+f035	[Left border except top]
+f036	[Top left border]
+f037	[Bottom dotted]
+f038	[R]
+f039	[L]
+f03a	[B]
+f03b	[G]
+f03c	[Musical notes]
+f03d	[Mouse pointer]
+f03e	[BS]
+f03f	[SP]
+f040	[LP]
+f041	[EP]
 33c8	㏈
-e042	[alert left]
-e043	[alert right]
+f042	[alert left]
+f043	[alert right]
 1f511	🔑
-e044	[Left dotted]
-e045	[Crosshair]
-e046	[Right dotted]
-e047	[M]
+f044	[Left dotted]
+f045	[Crosshair]
+f046	[Right dotted]
+f047	[M]
 3390	㎐
-e048	[k]
+f048	[k]
 3c	<
 3e	>
-e049	[question left]
-e04a	[question right]
+f049	[question left]
+f04a	[question right]
 1f50a	🔊
 1f509	🔉
-e04b	[sparkles]
-e04c	[vertical bar odd]
-e04d	[vertical bar even]
-e04e	[sun left]
-e04f	[sun right]
-e050	[Top dotted]
+f04b	[sparkles]
+f04c	[vertical bar odd]
+f04d	[vertical bar even]
+f04e	[sun left]
+f04f	[sun right]
+f050	[Top dotted]
 2666	♦
 2660	♠
 2665	♥
