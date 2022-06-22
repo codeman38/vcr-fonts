@@ -30,6 +30,9 @@ def main():
     parser.add_argument('-m', '--min', type=int, default=32,
         help='minimum size of character cell in pixels '
              '(default: %(default)d)')
+    parser.add_argument('-b', '--border-thresh', type=int, default=32,
+        help='value threshold for identifying borders of character cells '
+             '(default: %(default)d)')
     parser.add_argument('-o', '--out',
         help='output file (default: stdout)')
     parser.add_argument('imgfile', nargs='+',
@@ -42,10 +45,12 @@ def main():
         out = io.open(sys.stdout.fileno(), 'wb', closefd=False)
     for imgfile in args.imgfile:
         out.write(parse_image(imgfile, args.width, args.height,
-                              args.thresh, args.invert, args.min))
+                              args.thresh, args.invert, args.min,
+                              args.border_thresh))
     out.close()
 
-def parse_image(imgfile, cwidth, cheight, thresh, invert, min_size):
+def parse_image(imgfile, cwidth, cheight, thresh, invert, min_size,
+                border_thresh):
     """Reads the image from the specified image file, parses the character
     bitmaps from it, and returns the binary representation as a byte string.
 
@@ -55,7 +60,10 @@ def parse_image(imgfile, cwidth, cheight, thresh, invert, min_size):
     - cheight: height of character cell, in pixels
     - thresh: mean value above which a pixel from the scanned image is
               considered to be active
-    - invert: if True, look for white pixels in the image rather than black"""
+    - invert: if True, look for white pixels in the image rather than black
+    - min_size: minimum pixel size for character cells in image
+    - border_thresh: average value threshold for identifying borders
+                     of character cells"""
     im = Image.open(imgfile)
     # downsample to greyscale
     im = im.convert('L')
@@ -64,10 +72,10 @@ def parse_image(imgfile, cwidth, cheight, thresh, invert, min_size):
         im = ImageChops.invert(im)
 
     parts = []
-    for (ystart, yend) in get_bounds(im, 1, min_size):
+    for (ystart, yend) in get_bounds(im, 1, min_size, border_thresh):
         print(ystart, yend, file=sys.stderr)
         row = im.crop((0, ystart, im.size[0]+1, yend+1))
-        x_bounds = get_bounds(row, 0, min_size)
+        x_bounds = get_bounds(row, 0, min_size, border_thresh)
         for (xstart, xend) in x_bounds:
             print('    ', xstart, xend, file=sys.stderr)
             charbit = im.crop((xstart, ystart, xend+1, yend+1))
