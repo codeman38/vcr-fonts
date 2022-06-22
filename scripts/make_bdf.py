@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 import argparse
-import binascii
+import functools
 import sys
 import os
 from bdflib.model import Font
-from bdflib import writer
+from bdflib import writer, xlfd
 
 # NOTE: This script requires the 'bdflib' module (available from PyPI).
 
@@ -49,8 +49,10 @@ def main():
     char_length = char_byte_width * char_height
     char_descent = args.descent
     num_chars = len(data) // char_length
+    # number of bits to shift character right to fit into bounding box
+    rshift = 8 * char_byte_width - char_width
 
-    font = Font(fontname, char_height, 72, 72)
+    font = Font(fontname.encode('utf-8'), char_height, 72, 72)
     for glyph_num in range(num_chars):
         if glyph_num >= len(mapping): break
         glyph_cp = mapping[glyph_num]
@@ -59,23 +61,26 @@ def main():
         rows = []
         for row in range(char_height):
             row_start = glyph_start + char_byte_width * row
-            row_data = data[row_start:row_start+char_byte_width]
-            rows.append(binascii.hexlify(row_data))
+            row_value = 0
+            for byte in data[row_start:row_start+char_byte_width]:
+                row_value = (row_value << 8) | byte
+            rows.insert(0, row_value >> rshift)
         if glyph_cp <= 0xFFFF:
             glyph_name = 'uni{0:04x}'.format(glyph_cp)
         else:
             glyph_name = 'U+{0:x}'.format(glyph_cp)
         font.new_glyph_from_data(
-            name=glyph_name, codepoint=glyph_cp, data=rows,
+            name=glyph_name.encode('utf-8'), codepoint=glyph_cp, data=rows,
             bbX=0, bbY=char_descent, bbW=char_width, bbH=char_height,
             advance=char_width)
+    xlfd.fix(font)
 
     if args.output:
-        fp = open(args.output, 'w')
+        fp = open(args.output, 'wb')
     else:
-        fp = sys.stdout
+        fp = open(sys.stdout.fileno(), 'wb', closefd=False)
     writer.write_bdf(font, fp)
-    if fp != sys.stdout:
+    if not args.output:
         fp.close()
 
 if __name__=="__main__":
