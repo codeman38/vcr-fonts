@@ -27,6 +27,9 @@ def main():
     parser.add_argument('-t', '--thresh', type=int, default=192,
         help='mean value threshold for a pixel to be considered active '
              '(default: %(default)d)')
+    parser.add_argument('-m', '--min', type=int, default=32,
+        help='minimum size of character cell in pixels '
+             '(default: %(default)d)')
     parser.add_argument('-o', '--out',
         help='output file (default: stdout)')
     parser.add_argument('imgfile', nargs='+',
@@ -39,10 +42,10 @@ def main():
         out = io.open(sys.stdout.fileno(), 'wb', closefd=False)
     for imgfile in args.imgfile:
         out.write(parse_image(imgfile, args.width, args.height,
-                              args.thresh, args.invert))
+                              args.thresh, args.invert, args.min))
     out.close()
 
-def parse_image(imgfile, cwidth, cheight, thresh, invert):
+def parse_image(imgfile, cwidth, cheight, thresh, invert, min_size):
     """Reads the image from the specified image file, parses the character
     bitmaps from it, and returns the binary representation as a byte string.
 
@@ -61,19 +64,19 @@ def parse_image(imgfile, cwidth, cheight, thresh, invert):
         im = ImageChops.invert(im)
 
     parts = []
-    for (ystart, yend) in get_bounds(im, 1):
-        #print(ystart, yend, file=sys.stderr)
+    for (ystart, yend) in get_bounds(im, 1, min_size):
+        print(ystart, yend, file=sys.stderr)
         row = im.crop((0, ystart, im.size[0]+1, yend+1))
-        x_bounds = get_bounds(row, 0)
+        x_bounds = get_bounds(row, 0, min_size)
         for (xstart, xend) in x_bounds:
-            #print('    ', xstart, xend, file=sys.stderr)
+            print('    ', xstart, xend, file=sys.stderr)
             charbit = im.crop((xstart, ystart, xend+1, yend+1))
             for val in parse_char(charbit, cwidth, cheight, thresh):
                 parts.append(struct.pack('>H', val))
     return b''.join(parts)
 
 
-def get_bounds(im, dim, thresh=32):
+def get_bounds(im, dim, min_size=64, thresh=32):
     """Finds the horizontal or vertical boundary lines between characters
     in a character bitmap sheet and yields them.
 
@@ -97,9 +100,9 @@ def get_bounds(im, dim, thresh=32):
             cur_bound[0] = i
         elif mean <= thresh and last_mean > thresh:
             cur_bound[1] = i-1
-            # don't output this as a boundary unless there's more than a
-            # single pixel distance
-            if cur_bound[1] - cur_bound[0] > 1: 
+            # don't output this as a boundary unless it's above the minimum
+            # size in pixels
+            if cur_bound[1] - cur_bound[0] > min_size:
                 yield tuple(cur_bound)
         last_mean = mean
 
